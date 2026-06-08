@@ -1,0 +1,4 @@
+name = "Status Cave Theme"
+author = "Ate Bear"
+description = "A minimal, headless status logger for single-user sites."
+license = "MIT"
