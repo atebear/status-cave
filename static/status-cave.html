@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ʕ•ᴥ•ʔ Ate Bear Status Cave</title>
+</head>
+<body>
+<h1>ʕ•ᴥ•ʔ Ate Bear Status Cave</h1>
+<div id="status-cave-timeline">
+  <p>Peering into the cave...</p>
+</div>
+<script>
+  const CAVE_URL = 'https://atebear.netlify.app/index.json';
 
+  async function fetchStatuses() {
+    try {
+      const res = await fetch(CAVE_URL);
+      const data = await res.json();
+      const container = document.getElementById('status-cave-timeline');
+      
+      if(data.length === 0) {
+        container.innerHTML = '<p>The cave is currently empty.</p>';
+        return;
+      }
+
+      container.innerHTML = data.map(status => `
+        <div class="status-item" style="margin-bottom: 1rem; border-left: 2px solid #555; padding-left: 8px;">
+          <small style="color: #888;">${status.date} ${status.mood ? `— ${status.mood}` : ''}</small>
+          <div class="status-text" style="margin-top: 4px;">${status.text}</div>
+        </div>
+      `).join('');
+    } catch (err) {
+      console.error(err);
+      document.getElementById('status-cave-timeline').innerHTML = '<p>Failed to retrieve cave updates.</p>';
+    }
+  }
+  fetchStatuses();
+</script>
+</body>
+</html>
