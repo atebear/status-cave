@@ -1,0 +1,7 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'Status.Cave'
+theme = 'status-cave-theme'
+
+[outputs]
+  home = ["HTML", "JSON"]
