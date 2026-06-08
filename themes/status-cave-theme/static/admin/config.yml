@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "themes/status-cave-theme/static/images"
+public_folder: "/images"
+
+collections:
+  - name: "status"
+    label: "Status Updates"
+    folder: "content/status"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    fields:
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Mood", name: "mood", widget: "string", required: false }
+      - { label: "Status Text", name: "body", widget: "text" }
