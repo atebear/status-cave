@@ -1,0 +1,11 @@
+[build]
+  publish = "public"
+  command = "hugo --gc --minify"
+
+[build.environment]
+  HUGO_VERSION = "0.125.0" # Ensures Netlify uses a modern version of Hugo
+
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*" # Crucial! Allows your main indie site to fetch your status JSON without CORS errors
