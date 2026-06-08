@@ -18,7 +18,7 @@ status-cave/
 ├── content/
 │   └── status/               <-- Your saved updates (.md files)
 └── themes/
-    └── status-cave-theme/    <-- The custom theme templates
+    └── status-cave/    <-- The custom theme templates
         ├── theme.toml
         ├── layouts/
         │   ├── index.html    <-- Private login panel
